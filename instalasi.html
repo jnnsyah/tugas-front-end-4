@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalasi - LabFlow TKJ Nesaga</title>
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS Internal -->
+    <style>
+        .active-link {
+            background-color: #3b82f6 !important;
+            color: white !important;
+        }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #38bdf8;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 5px solid #0ea5e9;
+        }
+
+        /* Menggunakan tag pre + code secara spesifik (Modul 2) */
+        pre {
+            margin: 0;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>LabFlow TKJ</h1>
+        <p>Learning Management System Terintegrasi</p>
+    </div>
+
+    <div class="layout-wrapper">
+        <div class="sidebar-left">
+            <div class="card">
+                <h2>Navigasi</h2>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="fitur.html">Fitur Utama</a></li>
+                    <li><a href="instalasi.html" class="active-link">Panduan Instalasi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>Menjalankan di Localhost</h2>
+                <p>Panduan penggelaran <i>(deployment)</i> lokal untuk lingkungan pengembang (Development Environment).
+                </p>
+
+                <!-- Ordered List (Modul 3) untuk langkah instruksi -->
+                <ol>
+                    <li>
+                        <b>Kloning Repositori</b>: Lakukan pengambilan repotory publik melalui protokol Git. Pastikan
+                        menargetkan *branch* utama.
+                        <div class="code-block">
+                            <pre><code>git clone https://github.com/lab-tkj-nesaga/labflow.git
+cd labflow
+git checkout main</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Pemasangan Dependensi</b>: Sistem LabFlow dikonfigurasi melalui paket manajer NPM standar.
+                        <div class="code-block">
+                            <pre><code>npm install</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Inisiasi Variabel Lingkungan</b>: Tentukan alamat URL pangkalan data dan parameter rahasia.
+                        <div class="code-block">
+                            <pre><code>cp .env.example .env</code></pre>
+                        </div>
+                        <!-- Inline CSS pada paragraf penanda -->
+                        <p style="margin-top:10px; font-size: 0.9rem; color: #b91c1c;">
+                            <i>(Catatan: Buka file .env dan sesuaikan properti akses PostgreSQL)</i>
+                        </p>
+                    </li>
+                    <li>
+                        <b>Migrasi Skema</b>: Terapkan dan letakkan entitas tabel Prisma ORM ke dalam basis data aktif.
+                        <div class="code-block">
+                            <pre><code>npx prisma db push
+npx prisma generate</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Jalankan Kompilator</b>: Eksekusi mesin server port lokal.
+                        <div class="code-block">
+                            <pre><code>npm run dev</code></pre>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="sidebar-right">
+            <div class="card external-links">
+                <h2>Cek Dokumentasi Terkait</h2>
+                <ul>
+                    <li><a href="https://nextjs.org/" target="_blank">Next.js Framework</a></li>
+                    <li><a href="https://hono.dev/" target="_blank">Hono.js API</a></li>
+                    <li><a href="https://www.prisma.io/" target="_blank">Prisma ORM</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="clear-layout"></div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 LabFlow TKJ Nesaga. Hak Cipta Ekosistem.&nbsp;&nbsp;|&nbsp;&nbsp;Modul 4 Compliance Build.</p>
+    </div>
+
+</body>
+
+</html>
